@@ -28,7 +28,7 @@ createBackend({
 import { IframeRPC } from 'iframe-rpc';
 
 const iframeElement = document.getElementById("iframe-element");
-const iframeRPC = new IframeRPC(iframeElement);
+const iframeRPC = new IframeRPC(iframeElement.contentWindow);
 
 await iframeRPC.handshake();
 

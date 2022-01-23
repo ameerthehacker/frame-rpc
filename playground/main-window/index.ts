@@ -1,5 +1,5 @@
-import { IframeRPC } from "../../src";
-import { SampleRPCContract } from "../common/types";
+import { createBackend, IframeRPC } from "../../src";
+import { IframeToMain, SampleRPCContract } from "../common/types";
 
 (async () => {
     const iframeElement = document.getElementById(
@@ -7,7 +7,17 @@ import { SampleRPCContract } from "../common/types";
     ) as HTMLIFrameElement;
 
     if (iframeElement) {
-        const iframeRPC = new IframeRPC(iframeElement);
+        createBackend<IframeToMain>(
+            {
+                say: (message: string) => {
+                    document.getElementById("iframe-output").innerText =
+                        message;
+                },
+            },
+            iframeElement.contentWindow
+        );
+
+        const iframeRPC = new IframeRPC(iframeElement.contentWindow);
 
         await iframeRPC.handshake();
 

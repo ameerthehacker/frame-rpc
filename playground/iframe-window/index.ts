@@ -1,5 +1,5 @@
-import { createBackend } from "../../src";
-import { SampleRPCContract } from "../common/types";
+import { createBackend, IframeRPC } from "../../src";
+import { IframeToMain, SampleRPCContract } from "../common/types";
 
 createBackend<SampleRPCContract>({
     say: (message) => {
@@ -10,3 +10,17 @@ createBackend<SampleRPCContract>({
         throw new Error("I'm not that happy!");
     },
 });
+
+(async () => {
+    const iframeRPC = new IframeRPC(window.parent);
+
+    await iframeRPC.handshake();
+
+    const iframeToMainRPC = iframeRPC.createFrontend<IframeToMain>();
+
+    document
+        .getElementById("send-message")
+        .addEventListener("click", async () => {
+            await iframeToMainRPC.say("hello from iframe");
+        });
+})();
