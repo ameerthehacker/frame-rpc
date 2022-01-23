@@ -8,6 +8,10 @@ Iframe/Window communications using post messages is such a pain in the arse
 
 This reimagines Iframe communication using JSON RPC. What if you can just call a function to do something in your iframe without thinking in terms of postmessages and get something back without thinking about listening for messages?
 
+## Demo
+
+Play with sandbox [here](https://codesandbox.io/s/frame-rpc-main-window-m3mnx?file=/src/App.tsx)
+
 ## How to use it?
 
 ### In the Iframe application

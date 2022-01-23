@@ -1,6 +1,6 @@
 {
   "name": "@ameerthehacker/frame-rpc",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Communication between browser windows using jsonrpc",
   "main": "./dist/index.js",
   "types": "./dist/types.d.ts",
