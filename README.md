@@ -25,7 +25,7 @@ createBackend({
 ### In the main application
 
 ```js
-import { IframeRPC } from '@ameerthehacker/frame-rpc';
+import { FrameRPC } from '@ameerthehacker/frame-rpc';
 
 const iframeElement = document.getElementById('iframe-element');
 const iframeRPC = new IframeRPC(iframeElement.contentWindow);

@@ -6,7 +6,7 @@ import {
   sendMessage,
 } from './utils';
 
-export class IframeRPC {
+export class FrameRPC {
   constructor(private backendWindow: Window) {}
 
   handshake() {
