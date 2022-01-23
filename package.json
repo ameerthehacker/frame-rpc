@@ -1,7 +1,7 @@
 {
-  "name": "iframe-rpc",
+  "name": "@ameerthehacker/frame-rpc",
   "version": "0.0.1",
-  "description": "Iframe communication using jsonrpc",
+  "description": "Communication between browser windows using jsonrpc",
   "main": "./dist/index.js",
   "types": "./dist/types.d.ts",
   "scripts": {

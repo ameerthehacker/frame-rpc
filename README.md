@@ -1,6 +1,6 @@
-# Iframe RPC
+# Frame RPC
 
-Iframe communications using post messages is such a pain in the arse
+Iframe/Window communications using post messages is such a pain in the arse
 
 - Manage handshakes
 - We don't get strong contract
@@ -13,7 +13,7 @@ This reimagines Iframe communication using JSON RPC. What if you can just call a
 ### In the Iframe application
 
 ```js
-import { createBackend } from 'iframe-rpc';
+import { createBackend } from '@ameerthehacker/frame-rpc';
 
 createBackend({
   add: (num1, num2) => {
@@ -25,7 +25,7 @@ createBackend({
 ### In the main application
 
 ```js
-import { IframeRPC } from 'iframe-rpc';
+import { IframeRPC } from '@ameerthehacker/frame-rpc';
 
 const iframeElement = document.getElementById('iframe-element');
 const iframeRPC = new IframeRPC(iframeElement.contentWindow);
