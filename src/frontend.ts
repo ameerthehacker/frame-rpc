@@ -45,7 +45,12 @@ export class IframeRPC {
               });
             }, 5000);
 
-            listenForMessages((rpcResponse) => {
+            const cleanEventListener = listenForMessages((rpcResponse) => {
+              function cleanUp() {
+                clearTimeout(timer);
+                cleanEventListener();
+              }
+
               if (isJSONRPCResponse(rpcResponse)) {
                 // we want to match response to the right request
                 if (rpcResponse.id !== rpcRequest.id) return;
@@ -53,7 +58,7 @@ export class IframeRPC {
                 if (rpcResponse.result) {
                   resolve(rpcResponse.result);
                 } else if (rpcResponse.error) {
-                  clearTimeout(timer);
+                  cleanUp();
 
                   throw new Error(rpcResponse.error.message);
                 }
@@ -61,8 +66,8 @@ export class IframeRPC {
                 resolve(null);
               }
 
-              clearTimeout(timer);
-            }, true);
+              cleanUp();
+            });
 
             sendMessage(this.backendWindow, rpcRequest);
           });
