@@ -11,7 +11,11 @@ export class JSONRPCRequest {
 export class JSONRPCResponse {
   public jsonrpc: string = '2.0';
 
-  constructor(public id: number, public result?: any, public error?: { code: number, message: string, data?: any }) {
+  constructor(
+    public id: number,
+    public result?: any,
+    public error?: { code: number; message: string; data?: any }
+  ) {
     JSONRPCRequest.nextId++;
   }
 }

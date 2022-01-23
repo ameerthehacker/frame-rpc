@@ -1,4 +1,4 @@
-import { IframeRPC } from "./frontend";
-import { createBackend } from "./backend";
+import { IframeRPC } from './frontend';
+import { createBackend } from './backend';
 
 export { IframeRPC, createBackend };

@@ -2,9 +2,9 @@
 
 Iframe communications using post messages is such a pain in the arse
 
-* Manage handshakes
-* We don't get strong contract
-* Write never ending switch statements
+- Manage handshakes
+- We don't get strong contract
+- Write never ending switch statements
 
 This reimagines Iframe communication using JSON RPC. What if you can just call a function to do something in your iframe without thinking in terms of postmessages and get something back without thinking about listening for messages?
 
@@ -18,8 +18,8 @@ import { createBackend } from 'iframe-rpc';
 createBackend({
   add: (num1, num2) => {
     return num1 + num2;
-  }
-})
+  },
+});
 ```
 
 ### In the main application
@@ -27,7 +27,7 @@ createBackend({
 ```js
 import { IframeRPC } from 'iframe-rpc';
 
-const iframeElement = document.getElementById("iframe-element");
+const iframeElement = document.getElementById('iframe-element');
 const iframeRPC = new IframeRPC(iframeElement.contentWindow);
 
 await iframeRPC.handshake();
