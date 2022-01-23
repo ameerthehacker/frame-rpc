@@ -1,0 +1,29 @@
+{
+  "name": "iframe-rpc",
+  "version": "0.0.1",
+  "description": "Iframe communication using jsonrpc",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "concurrently -k yarn:start-main-window yarn:start-iframe-window",
+    "start-main-window": "parcel serve --port 3000 ./playground/main-window/index.html",
+    "start-iframe-window": "parcel serve --port 3001 ./playground/iframe-window/iframe.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ameerthehacker/iframe-rpc.git"
+  },
+  "keywords": [
+    "iframe",
+    "jsonrpc"
+  ],
+  "author": "Ameer Jhan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ameerthehacker/iframe-rpc/issues"
+  },
+  "homepage": "https://github.com/ameerthehacker/iframe-rpc#readme",
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "parcel": "^2.2.1"
+  }
+}

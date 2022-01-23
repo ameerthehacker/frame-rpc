@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iframe RPC - Main</title>
+  <style>
+    html, body {
+      padding: 10px;
+      margin: 0;
+    }
+
+    iframe {
+      height: 500px;
+      width: 500px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <h1>I'm the main window</h1>
+  <h3>one way communication</h3>
+  <input id="message-text" value="hello world from RPC!" />
+  <button id="btn-send">send message</button>
+  <hr />
+  <h3>two way communication</h3>
+  <button id="btn-add">2 + 2</button>
+  <br />
+  <h3>Errors</h3>
+  <button id="btn-error-iframe">Error thrown from iframe</button>
+  <button id="btn-method-notfound">Error due to method not found</button>
+  <br />
+  <br />
+  <iframe id="iframe-element" src="http://localhost:3001/iframe.html"></iframe>
+</body>
+<script type="module" src="./index.ts"></script>
+</html>
