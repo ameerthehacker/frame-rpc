@@ -32,11 +32,12 @@ createBackend({
 import { FrameRPC } from '@ameerthehacker/frame-rpc';
 
 const iframeElement = document.getElementById('iframe-element');
-const iframeRPC = new IframeRPC(iframeElement.contentWindow);
+const iframeRPC = new FrameRPC(iframeElement.contentWindow);
 
 await iframeRPC.handshake();
 
-const result = await iframeRPC.add(2, 5);
+const frontend = iframeRPC.createFrontend();
+const result = await frontend.add(2, 5);
 
 // will print 7 😃
 console.log(result);
